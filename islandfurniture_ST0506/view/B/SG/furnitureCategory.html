@@ -15,10 +15,10 @@
                     return response.json();
                 }).then(function (data) {
                     var htmlTxt = '';
-                   
-                        var furniture = data[0];
-                        //generate html for furnitures
-                        htmlTxt += '\
+                   for(var i=0; i<data.length;i++){
+                    var furniture = data[i];
+                    
+                    htmlTxt += '\
                             <li class="col-md-3 col-sm-6 col-xs-12 product" style="padding-bottom: 1%;padding-top: 2%;">\
                                 <span class="product-thumb-info">\
                                     <span class="product-thumb-info-image">\
@@ -47,6 +47,8 @@
                                             <input type="hidden" name="sku" value="' + furniture.sku + '"/>\
                                             <input type="submit" class="btn btn-primary btn-block" value="More Details"/>\
                                         </form>';
+                   }
+                        
                         //check if user is logged in
                         var memberEmail = sessionStorage.getItem('memberEmail');
                         //display 'Add To Cart' button only if user is logged in
