@@ -26,7 +26,9 @@
                         + furniture.sku + '\',\'' + furniture.id + '\',' + furniture.price + ',\'' + furniture.name + '\',\''
                         + furniture.imageURL + '\')">Add To Cart</button>';
                     }
-               
+                    document.getElementById("furnitureName").innerHTML = furniture.name;
+                    document.getElementById("price").innerHTML ='<p style="color:#cc3b33;">$'+ (furniture.price).toFixed(2) +'</p>';
+                    document.getElementById("description").innerHTML = furniture.description;
                     document.getElementById("categoryLink").innerHTML = furniture.category;
                     document.getElementById("categoryLink").setAttribute('href', '/B/' + countryPrefix
                         + '/furnitureCategory.html?cat=' + encodeURIComponent(furniture.category));
@@ -176,7 +178,7 @@
                             <div class="col-md-6">
                                 <div class="summary entry-summary">
                                     <h2 class="shorter"><strong id="furnitureName"></strong></h2>
-                                    <div id="addToCartBtn"></div>
+                                    
                                     <p class="price"><h4 class="amount" id="price"></h4></p>
                                     <strong>Description</strong>
                                     <p class="taller" id="description"></p>
@@ -193,6 +195,7 @@
                                                 <select style="color: black;" name="storeID" id="storeID"></select><br/><br/>
                                                 <input type="submit" onclick="CheckItemAvail()" class="btn btn-primary btn-icon" value="Check Item Availability"/>
                                             </form>
+                                            <div id="addToCartBtn"></div>
                                         </div>
                                         <div id="quantityDiv"></div>
                                     </div>
